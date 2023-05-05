@@ -1,0 +1,437 @@
+EX Version: 3
+Region: /
+!#nodeset nodes
+Define node template: node1
+Shape. Dimension=0
+#Fields=1
+1) coordinates, coordinate, rectangular cartesian, real, #Components=3
+ x. #Values=1 (value)
+ y. #Values=1 (value)
+ z. #Values=1 (value)
+Node template: node1
+Node: 1
+  0.000000000000000e+00
+  0.000000000000000e+00
+  0.000000000000000e+00
+Node: 2
+  1.000000000000000e+00
+  0.000000000000000e+00
+  0.000000000000000e+00
+Node: 3
+  0.000000000000000e+00
+  1.000000000000000e+00
+  0.000000000000000e+00
+Node: 4
+  1.000000000000000e+00
+  1.000000000000000e+00
+  0.000000000000000e+00
+Node: 5
+  0.000000000000000e+00
+  0.000000000000000e+00
+  1.000000000000000e+00
+Node: 6
+  1.000000000000000e+00
+  0.000000000000000e+00
+  1.000000000000000e+00
+Node: 7
+  0.000000000000000e+00
+  1.000000000000000e+00
+  1.000000000000000e+00
+Node: 8
+  1.000000000000000e+00
+  1.000000000000000e+00
+  1.000000000000000e+00
+Node: 9
+  5.000000000000000e-01
+  0.000000000000000e+00
+  0.000000000000000e+00
+Node: 10
+  1.000000000000000e+00
+  5.000000000000000e-01
+  0.000000000000000e+00
+Node: 11
+  5.000000000000000e-01
+  1.000000000000000e+00
+  0.000000000000000e+00
+Node: 12
+  0.000000000000000e+00
+  5.000000000000000e-01
+  0.000000000000000e+00
+Node: 13
+  0.000000000000000e+00
+  0.000000000000000e+00
+  5.000000000000000e-01
+Node: 14
+  1.000000000000000e+00
+  0.000000000000000e+00
+  5.000000000000000e-01
+Node: 15
+  0.000000000000000e+00
+  1.000000000000000e+00
+  5.000000000000000e-01
+Node: 16
+  1.000000000000000e+00
+  1.000000000000000e+00
+  5.000000000000000e-01
+Node: 17
+  5.000000000000000e-01
+  0.000000000000000e+00
+  1.000000000000000e+00
+Node: 18
+  1.000000000000000e+00
+  5.000000000000000e-01
+  1.000000000000000e+00
+Node: 19
+  5.000000000000000e-01
+  1.000000000000000e+00
+  1.000000000000000e+00
+Node: 20
+  0.000000000000000e+00
+  5.000000000000000e-01
+  1.000000000000000e+00
+Node: 21
+  0.500000000000000e+00
+  5.000000000000000e-01
+  0.000000000000000e+00
+Node: 22
+  0.500000000000000e+00
+  0.000000000000000e+00
+  0.500000000000000e+00
+Node: 23
+  0.500000000000000e+00
+  1.000000000000000e+00
+  0.500000000000000e+00
+Node: 24
+  0.500000000000000e+00
+  0.500000000000000e+00
+  1.000000000000000e+00
+Node: 25
+  0.500000000000000e+00
+  0.500000000000000e+00
+  0.500000000000000e+00
+Node: 26
+  0.000000000000000e+00
+  0.500000000000000e+00
+  0.500000000000000e+00
+Node: 27
+  1.000000000000000e+00
+  0.500000000000000e+00
+  0.500000000000000e+00
+!#mesh mesh1d, dimension=1, nodeset=nodes
+Define element template: element1
+Shape. Dimension=1, line
+#Scale factor sets=0
+#Nodes=3
+#Fields=1
+1) coordinates, coordinate, rectangular cartesian, real, #Components=3
+ x. q.Lagrange, no modify, standard node based.
+  #Nodes=3
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+ y. q.Lagrange, no modify, standard node based.
+  #Nodes=3
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+ z. q.Lagrange, no modify, standard node based.
+  #Nodes=3
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+Element template: element1
+Element: 1
+ Nodes:
+ 1 9  2
+Element: 2
+ Nodes:
+ 2  10  4
+Element: 3
+ Nodes:
+ 4  11  3
+Element: 4
+ Nodes:
+ 3  12  1
+Element: 5
+ Nodes:
+ 1 13  5
+Element: 6
+ Nodes:
+ 3  15  7
+Element: 7
+ Nodes:
+ 4  16  8
+Element: 8
+ Nodes:
+ 2  14  6
+Element: 9
+ Nodes:
+ 5  17  6
+Element: 10
+ Nodes:
+ 6  18  8
+Element: 11
+ Nodes:
+ 8  19  7
+Element: 12
+ Nodes:
+ 7  20 5
+!#mesh mesh2d, dimension=2, face mesh=mesh1d, nodeset=nodes
+Define element template: element2
+Shape. Dimension=2, line*line
+#Scale factor sets=0
+#Nodes=9
+#Fields=1
+1) coordinates, coordinate, rectangular cartesian, real, #Components=3
+ x. q.Lagrange*q.Lagrange, no modify, standard node based.
+  #Nodes=9
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+  4. #Values=1
+   Value labels: value
+  5. #Values=1
+   Value labels: value
+  6. #Values=1
+   Value labels: value
+  7. #Values=1
+   Value labels: value
+  8. #Values=1
+   Value labels: value
+  9. #Values=1
+   Value labels: value
+ y. q.Lagrange*q.Lagrange, no modify, standard node based.
+  #Nodes=9
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+  4. #Values=1
+   Value labels: value
+  5. #Values=1
+   Value labels: value
+  6. #Values=1
+   Value labels: value
+  7. #Values=1
+   Value labels: value
+  8. #Values=1
+   Value labels: value
+  9. #Values=1
+   Value labels: value
+ z. q.Lagrange*q.Lagrange, no modify, standard node based.
+  #Nodes=9
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+  4. #Values=1
+   Value labels: value
+  5. #Values=1
+   Value labels: value
+  6. #Values=1
+   Value labels: value
+  7. #Values=1
+   Value labels: value
+  8. #Values=1
+   Value labels: value
+  9. #Values=1
+   Value labels: value
+Element template: element2
+Element: 1
+ Nodes:
+ 1 9 2 13 22 14 5 17 6
+!#mesh mesh3d, dimension=3, face mesh=mesh2d, nodeset=nodes
+Define element template: element4
+Shape. Dimension=3, line*line*line
+#Scale factor sets=0
+#Nodes=27
+#Fields=1
+1) coordinates, coordinate, rectangular cartesian, real, #Components=3
+ x. q.Lagrange*q.Lagrange*q.Lagrange, no modify, standard node based.
+  #Nodes=27
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+  4. #Values=1
+   Value labels: value
+  5. #Values=1
+   Value labels: value
+  6. #Values=1
+   Value labels: value
+  7. #Values=1
+   Value labels: value
+  8. #Values=1
+   Value labels: value
+  9. #Values=1
+   Value labels: value
+  10. #Values=1
+   Value labels: value
+  11. #Values=1
+   Value labels: value
+  12. #Values=1
+   Value labels: value
+  13. #Values=1
+   Value labels: value
+  14. #Values=1
+   Value labels: value
+  15. #Values=1
+   Value labels: value
+  16. #Values=1
+   Value labels: value
+  17. #Values=1
+   Value labels: value
+  18. #Values=1
+   Value labels: value
+  19. #Values=1
+   Value labels: value
+  20. #Values=1
+   Value labels: value
+  21. #Values=1
+   Value labels: value
+  22. #Values=1
+   Value labels: value
+  23. #Values=1
+   Value labels: value
+  24. #Values=1
+   Value labels: value
+  25. #Values=1
+   Value labels: value
+  26. #Values=1
+   Value labels: value
+  27. #Values=1
+   Value labels: value
+ y. q.Lagrange*q.Lagrange*q.Lagrange, no modify, standard node based.
+  #Nodes=27
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+  4. #Values=1
+   Value labels: value
+  5. #Values=1
+   Value labels: value
+  6. #Values=1
+   Value labels: value
+  7. #Values=1
+   Value labels: value
+  8. #Values=1
+   Value labels: value
+  9. #Values=1
+   Value labels: value
+  10. #Values=1
+   Value labels: value
+  11. #Values=1
+   Value labels: value
+  12. #Values=1
+   Value labels: value
+  13. #Values=1
+   Value labels: value
+  14. #Values=1
+   Value labels: value
+  15. #Values=1
+   Value labels: value
+  16. #Values=1
+   Value labels: value
+  17. #Values=1
+   Value labels: value
+  18. #Values=1
+   Value labels: value
+  19. #Values=1
+   Value labels: value
+  20. #Values=1
+   Value labels: value
+  21. #Values=1
+   Value labels: value
+  22. #Values=1
+   Value labels: value
+  23. #Values=1
+   Value labels: value
+  24. #Values=1
+   Value labels: value
+  25. #Values=1
+   Value labels: value
+  26. #Values=1
+   Value labels: value
+  27. #Values=1
+   Value labels: value
+ z. q.Lagrange*q.Lagrange*q.Lagrange, no modify, standard node based.
+  #Nodes=27
+  1. #Values=1
+   Value labels: value
+  2. #Values=1
+   Value labels: value
+  3. #Values=1
+   Value labels: value
+  4. #Values=1
+   Value labels: value
+  5. #Values=1
+   Value labels: value
+  6. #Values=1
+   Value labels: value
+  7. #Values=1
+   Value labels: value
+  8. #Values=1
+   Value labels: value
+  9. #Values=1
+   Value labels: value
+  10. #Values=1
+   Value labels: value
+  11. #Values=1
+   Value labels: value
+  12. #Values=1
+   Value labels: value
+  13. #Values=1
+   Value labels: value
+  14. #Values=1
+   Value labels: value
+  15. #Values=1
+   Value labels: value
+  16. #Values=1
+   Value labels: value
+  17. #Values=1
+   Value labels: value
+  18. #Values=1
+   Value labels: value
+  19. #Values=1
+   Value labels: value
+  20. #Values=1
+   Value labels: value
+  21. #Values=1
+   Value labels: value
+  22. #Values=1
+   Value labels: value
+  23. #Values=1
+   Value labels: value
+  24. #Values=1
+   Value labels: value
+  25. #Values=1
+   Value labels: value
+  26. #Values=1
+   Value labels: value
+  27. #Values=1
+   Value labels: value
+Element template: element4
+Element: 1
+ Nodes:
+ 1 9  2 12  21  10  3  11  4  13  22  14  26  25  27  15  23  16  5   17  6  20  24  18  7  19  8
